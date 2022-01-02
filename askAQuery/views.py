@@ -4,4 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
-    return HttpResponse('<h1>Ask a Query!</h1>')
+    context = {
+        'title' : 'Ask Away...!',
+    }
+    return render(request,'askAQuery/home.html',context)

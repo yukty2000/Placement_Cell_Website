@@ -1,0 +1,18 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    <h1>Posts related to companies, available job roles, etc.!</h1>
+    {% for jobRole in jobRoles %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ post.author }}</a>
+                    <small class="text-muted">Last Date: {{ jobRole.lastDate }}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{jobRole.role}} at {{ jobRole.companyName }}</a></h2>
+                <p class="article-content">{{ jobRole.description }}</p>
+                <a href="{{jobRole.applyingLink}}">{{jobRole.applyingLink}}</a>
+            </div>
+          </article>
+    {% endfor %}
+{% endblock content %}

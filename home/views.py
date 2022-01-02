@@ -5,6 +5,9 @@ from django.http import HttpResponse
 
 # Templates will have about the cell and Hall of fame
 def home(request) :
-    return HttpResponse('<h1>Placement Cell</h1>')
+    context = {
+        'title': 'HITK Placement Cell',
+    }
+    return render(request,'home/home.html',context)
 
 
