@@ -2,4 +2,16 @@
 
 {% block content %}
     <h1>Ask a Query!</h1>
+    {% for query in queries %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ query.author }}</a>
+                    <small class="text-muted">{{ query.datePosted }}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{ query.question }}</a></h2>
+                <p class="article-content">{{ query.description }}</p>
+            </div>
+        </article>
+    {% endfor %}
 {% endblock content %}

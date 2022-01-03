@@ -2,17 +2,16 @@
 
 {% block content %}
     <h1>Posts related to companies, available job roles, etc.!</h1>
-    {% for jobRole in jobRoles %}
+    {% for post in posts %}
         <article class="media content-section">
             <div class="media-body">
                 <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ post.author }}</a>
-                    <small class="text-muted">Last Date: {{ jobRole.lastDate }}</small>
+                    <a class="mr-2" href="{{post.companyWebsite}}">{{ post.companyName }}</a>
+                    <small class="text-muted">{{ post.datePosted }}</small>
                 </div>
-                <h2><a class="article-title" href="#">{{jobRole.role}} at {{ jobRole.companyName }}</a></h2>
-                <p class="article-content">{{ jobRole.description }}</p>
-                <a href="{{jobRole.applyingLink}}">{{jobRole.applyingLink}}</a>
+                <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+                <p class="article-content">{{ post.description }}</p>
             </div>
-          </article>
+        </article>
     {% endfor %}
 {% endblock content %}
