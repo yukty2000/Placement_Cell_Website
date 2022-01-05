@@ -14,7 +14,7 @@
         {% if title %}
             <title>{{title}}</title>
         {% else %}
-            <title>Django Site</title>
+            <title>HITK Placement Cell</title>
         {% endif %}
     </head>
     <body>
@@ -29,13 +29,19 @@
                     <div class="collapse navbar-collapse" id="navbarToggle">
                         <div class="navbar-nav mr-auto">
                             <a class="nav-item nav-link" href="{% url 'placement-website-home' %}">Home</a>
-                            <a class="nav-item nav-link" href="{% url 'placement-website-posts' %}">Job openings</a>
-                            <a class="nav-item nav-link" href="{% url 'placement-website-askAQuery' %}">Ask A Query</a>
+                            {% if user.is_authenticated %}
+                                <a class="nav-item nav-link" href="{% url 'placement-website-posts' %}">Job openings</a>
+                                <a class="nav-item nav-link" href="{% url 'placement-website-askAQuery' %}">Ask A Query</a>
+                            {% endif %}
                         </div>
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="#">Login</a>
-                            <a class="nav-item nav-link" href="#">Register</a>
+                            {% if user.is_authenticated %}
+                                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout - {{user.username}}</a>
+                            {% else %}
+                                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
