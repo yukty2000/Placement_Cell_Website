@@ -37,7 +37,7 @@
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">
                             {% if user.is_authenticated %}
-                                <a class="nav-item nav-link" href="#">+New Query</a>
+                                <a class="nav-item nav-link" href="{% url 'query-create' %}">+New Query</a>
                                 <a class="nav-item nav-link" href="{% url 'logout' %}">Logout - {{user.username}}</a>
                             {% else %}
                                 <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>

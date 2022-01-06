@@ -73,8 +73,8 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 	#To prevent users from updating comments written by others 
 	def test_func(self):
-		post = self.get_object()
-		if self.request.user == post.author:
+		comment = self.get_object()
+		if self.request.user == comment.author:
 			return True
 		return False
 
@@ -85,8 +85,8 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 	#To prevent users from deleting comments written by others 
 	def test_func(self):
-		post = self.get_object()
-		if self.request.user == post.author:
+		comment = self.get_object()
+		if self.request.user == comment.author:
 			return True
 		return False
 

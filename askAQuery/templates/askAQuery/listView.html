@@ -6,10 +6,10 @@
         <article class="media content-section">
             <div class="media-body">
                 <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ query.author }}</a>
+                    <small class="text-muted mr-2">{{ query.author }}</small>
                     <small class="text-muted">{{ query.datePosted }}</small>
                 </div>
-                <h2><a class="article-title" href="#">{{ query.question }}</a></h2>
+                <h2><a class="article-title" href="{% url 'query-detail' query.id %}">{{ query.question }}</a></h2>
             </div>
         </article>
     {% endfor %}
