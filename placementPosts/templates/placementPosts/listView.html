@@ -6,11 +6,13 @@
         <article class="media content-section">
             <div class="media-body">
                 <div class="article-metadata">
-                    <a class="mr-2" href="{{post.companyWebsite}}">{{ post.companyName }}</a>
+                    <a class="mr-2" href="{{post.companyWebsite}}" target="_blank">{{ post.companyName }}</a>
                     <small class="text-muted">{{ post.datePosted }}</small>
                 </div>
-                <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-                <p class="article-content">{{ post.description }}</p>
+                <h2>
+                    <a class="article-title" href="{% url 'post-detail' post.id%}">{{ post.title }}</a>
+                </h2>
+                
             </div>
         </article>
     {% endfor %}

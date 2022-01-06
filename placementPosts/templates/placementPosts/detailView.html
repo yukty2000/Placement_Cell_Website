@@ -1,0 +1,53 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="{{post.companyWebsite}}" target="_blank">{{ post.companyName }}</a>
+                <small class="text-muted">{{ post.datePosted }}</small>
+            </div>
+            <h2 class="article-title">{{ post.title }}</h2>
+            <p>
+                <em>Job role: </em><br>{{ post.jobRole }} at {{post.companyName}}<br><br>
+                <em>Job description: </em><br>{{ post.description }}<br><br>
+                <em>Last date to apply: </em><br>{{post.lastDateToApply}}<br><br>
+            </p>
+
+            <a href="{{post.applyingLink}}">Apply here</a>
+        </div>
+    </article>
+     
+    <h2>Comments :</h2><br>   
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="comment">Add your comment here:</label><br>
+        <textarea rows="1" cols="50" name="comment" id="comment" placeholder="Write comment here" style="max-width: 95%; color:black;" required>
+        </textarea><br>
+        <button class="btn btn-outline-info" type="submit">Add</button>
+    </form>
+
+    <br><br>
+
+    {% for comment in comments %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <small class="text-muted mr-2">{{ comment.author.username }}</small>
+                    <small class="text-muted">{{ comment.datePosted }}</small>
+                    {% ifequal user.id comment.author.id %}
+                        <div>
+                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'comment-update' comment.id %}">Edit</a>
+                            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'comment-delete' comment.id %}">Delete</a>
+                        </div>
+                    {% endifequal %}
+                </div>
+                <h5>
+                    <p>{{ comment.comment }}</p>
+                </h5>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

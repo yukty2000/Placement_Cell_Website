@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 # Create your models here.
 
 # Post can be created by admin only - so no username/author required
@@ -30,5 +31,6 @@ class CommentOnPost(models.Model):
 	comment = models.CharField(max_length=800)
 	post = models.ForeignKey(Post,on_delete=models.CASCADE)
 
-	
+	def get_absolute_url(self):
+		return reverse('post-detail',kwargs={'pk': self.post.pk})
 

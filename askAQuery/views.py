@@ -6,10 +6,12 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def home(request):
+def listView(request):
     queries = Query.objects.all()
     context = {
-        'title' : 'Ask Away...!',
+        'title' : 'Queries',
         'queries' : queries,
     }
-    return render(request,'askAQuery/home.html',context)
+    return render(request,'askAQuery/listView.html',context)
+
+
