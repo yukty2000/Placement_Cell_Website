@@ -24,7 +24,7 @@
     <form method="POST">
         {% csrf_token %}
         <label for="comment">Add your comment here:</label><br>
-        <textarea rows="1" cols="50" name="comment" id="comment" placeholder="Write comment here" style="max-width: 95%; color:black;" required>
+        <textarea rows="1" cols="50" name="comment" id="comment" style="max-width: 95%; color:black;" required>
         </textarea><br>
         <button class="btn btn-outline-info" type="submit">Add</button>
     </form>
@@ -39,8 +39,8 @@
                     <small class="text-muted">{{ comment.datePosted }}</small>
                     {% ifequal user.id comment.author.id %}
                         <div>
-                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'comment-update' comment.id %}">Edit</a>
-                            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'comment-delete' comment.id %}">Delete</a>
+                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'pcomment-update' post.id comment.id %}">Edit</a>
+                            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'pcomment-delete' post.id comment.id %}">Delete</a>
                         </div>
                     {% endifequal %}
                 </div>
