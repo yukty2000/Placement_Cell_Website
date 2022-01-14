@@ -7,12 +7,12 @@
                 <div class="article-metadata">
                     <small class="text-muted mr-2">{{ query.author }}</small>
                     <small class="text-muted">{{ query.datePosted }}</small>
-                    {% ifequal user.id query.author.id %}
+                    {% if user.id == query.author.id %}
                         <div>
                             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'query-update' query.id %}">Edit</a>
                             <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'query-delete' query.id %}">Delete</a>
                         </div>
-                    {% endifequal %}
+                    {% endif %}
                 </div>
                 <h2><a class="article-title" href="#">{{ query.question }}</a></h2>
                 <p>{{ query.description }}</p>
@@ -37,12 +37,12 @@
                 <div class="article-metadata">
                     <small class="text-muted mr-2">{{ reply.author.username }}</small>
                     <small class="text-muted">{{ reply.datePosted }}</small>
-                    {% ifequal user.id reply.author.id %}
+                    {% if user.id == reply.author.id %}
                         <div>
                             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'qcomment-update' query.id reply.id %}">Edit</a>
                             <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'qcomment-delete' query.id reply.id %}">Delete</a>
                         </div>
-                    {% endifequal %}
+                    {% endif %}
                 </div>
                 <h5>
                     <p>{{ reply.comment }}</p>
