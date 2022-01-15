@@ -24,8 +24,9 @@
     <form method="POST">
         {% csrf_token %}
         <label for="comment">Add your comment here:</label><br>
-        <textarea rows="1" cols="50" name="comment" id="comment" style="max-width: 95%; color:black;" required>
-        </textarea><br>
+        <!--<textarea rows="1" cols="50" name="comment" id="comment" style="max-width: 95%; color:black;" required>-->
+            <input type="text" name="comment" id="comment" style="width: 50%;" required>
+        <br><br>
         <button class="btn btn-outline-info" type="submit">Add</button>
     </form>
 

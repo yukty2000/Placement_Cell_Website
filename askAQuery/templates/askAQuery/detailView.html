@@ -24,8 +24,8 @@
     <form method="POST">
         {% csrf_token %}
         <label for="reply">Add your replies here:</label><br>
-        <textarea rows="1" cols="50" name="reply" id="reply" placeholder="Write reply here" style="max-width: 95%; color:black;" required>
-        </textarea><br>
+        <input type="text" name="reply" id="reply" style="width: 50%;" required>
+        <br><br>
         <button class="btn btn-outline-info" type="submit">Reply</button>
     </form>
 
