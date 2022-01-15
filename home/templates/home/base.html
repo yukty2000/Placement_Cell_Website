@@ -9,39 +9,51 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
         <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
         {% if title %}
             <title>{{title}}</title>
         {% else %}
             <title>HITK Placement Cell</title>
         {% endif %}
-    </head>
-    <body>
+        <style>
+            .p2 {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
 
+      <!--  background-image: url('https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-campus-recruitment-exhibition-board-background-material-image_164432.jpg');
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;-->
+
+    </head>
+    <body style=" background-color: #c0c0c0; 
         <header class="site-header">
             <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-                <div class="container">
-                    <a class="navbar-brand mr-4" href="{% url 'placement-website-home' %}">HITK Placement</a>
+                <div class="container p2">
+                    <a class="navbar-brand mr-4 " href="{% url 'placement-website-home' %}">HITK PLACEMENT</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarToggle">
                         <div class="navbar-nav mr-auto">
-                            <a class="nav-item nav-link" href="{% url 'placement-website-home' %}">Home</a>
                             {% if user.is_authenticated %}
-                                <a class="nav-item nav-link" href="{% url 'placement-website-posts' %}">Job Openings</a>
-                                <a class="nav-item nav-link" href="{% url 'placement-website-askAQuery' %}">Queries</a>
+                                <a class="nav-item nav-link" href="{% url 'placement-website-posts' %}"><b>Job Openings</b></a>
+                                <a class="nav-item nav-link" href="{% url 'placement-website-askAQuery' %}"><b>Queries</b></a>
                             {% endif %}
                         </div>
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">
                             {% if user.is_authenticated %}
                                 <a class="nav-item nav-link" href="{% url 'query-create' %}">+New Query</a>
-                                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout - {{user.username}}</a>
+                                <a class="nav-item nav-link mr-4" href="{% url 'logout' %}">Logout - {{user.username}}</a>
                             {% else %}
                                 <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                                <a class="nav-item nav-link mr-4" href="{% url 'register' %}">Register</a>
                             {% endif %}
                         </div>
                     </div>
@@ -64,6 +76,22 @@
                     {% block content %}{% endblock %}
                     
                 </div>
+<<<<<<< HEAD
+=======
+               <!-- <div class="col-md-4">
+                    <div class="content-section">
+                        <h3>Our Sidebar</h3>
+                        <p class='text-muted'>You can put any information here you'd like.
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-light">Latest Posts</li>
+                                <li class="list-group-item list-group-item-light">Announcements</li>
+                                <li class="list-group-item list-group-item-light">Calendars</li>
+                                <li class="list-group-item list-group-item-light">etc</li>
+                            </ul>
+                        </p>
+                    </div>-->
+                </div>
+>>>>>>> 6391e62c4f5fdc2e1097b3d9d860c54eb3dfd717
             </div>
         </main>
         

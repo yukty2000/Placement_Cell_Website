@@ -1,16 +1,19 @@
 {% extends "home/base.html" %}
 
 {% block content %}
-    <h1>Ask a Query!</h1>
+    <h1 class="fst-italic text-lg-start p2">Ask a Query!</h1>
+    <br>
     {% for query in queries %}
-        <article class="media content-section">
+        <article class="media old-content-section p2">
             <div class="media-body">
-                <div class="article-metadata">
+                <div class="article-metadata p2">
                     <small class="text-muted mr-2">{{ query.author }}</small>
                     <small class="text-muted">{{ query.datePosted }}</small>
                 </div>
-                <h2><a class="article-title" href="{% url 'query-detail' query.id %}">{{ query.question }}</a></h2>
+                <h2><a class="article-title" href="{% url 'query-detail' query.id %}">{{ query.question }}<br></a></h2>
             </div>
+            <br>
         </article>
+        <br>
     {% endfor %}
 {% endblock content %}

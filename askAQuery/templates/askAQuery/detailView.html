@@ -2,47 +2,52 @@
 
 {% block content %}
     
-    <article class="media content-section">
+    <article class="media old-content-section p2">
             <div class="media-body">
                 <div class="article-metadata">
                     <small class="text-muted mr-2">{{ query.author }}</small>
                     <small class="text-muted">{{ query.datePosted }}</small>
-                    {% ifequal user.id query.author.id %}
+                    {% if user.id == query.author.id %}
                         <div>
                             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'query-update' query.id %}">Edit</a>
                             <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'query-delete' query.id %}">Delete</a>
                         </div>
-                    {% endifequal %}
+                    {% endif %}
                 </div>
                 <h2><a class="article-title" href="#">{{ query.question }}</a></h2>
                 <p>{{ query.description }}</p>
             </div>
-        </article>
-     
-    <h2>Replies :</h2><br>   
+        </article>   
 
     <form method="POST">
         {% csrf_token %}
+<<<<<<< HEAD
         <label for="reply">Add your replies here:</label><br>
         <input type="text" name="reply" id="reply" style="width: 50%;" required>
         <br><br>
         <button class="btn btn-outline-info" type="submit">Reply</button>
+=======
+        <label for="reply"><b>Add your replies here:<b></label><br>
+        <textarea rows="1" cols="50" name="reply" id="reply" placeholder="Write reply here" style="max-width: 95%; color:black;" required>
+        </textarea><br>
+        <button class="btn btn-outline-primary" type="submit">Add Reply</button>
+>>>>>>> 6391e62c4f5fdc2e1097b3d9d860c54eb3dfd717
     </form>
 
     <br><br>
-
+    <h2>Replies:</h2>
     {% for reply in replies %}
-        <article class="media content-section">
+        <article class="media old-content-section">
             <div class="media-body">
                 <div class="article-metadata">
                     <small class="text-muted mr-2">{{ reply.author.username }}</small>
                     <small class="text-muted">{{ reply.datePosted }}</small>
-                    {% ifequal user.id reply.author.id %}
+                    {% if user.id == reply.author.id %}
                         <div>
                             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'qcomment-update' query.id reply.id %}">Edit</a>
                             <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'qcomment-delete' query.id reply.id %}">Delete</a>
                         </div>
-                    {% endifequal %}
+                    {% endif %}
                 </div>
                 <h5>
                     <p>{{ reply.comment }}</p>
