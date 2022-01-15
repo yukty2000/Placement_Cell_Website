@@ -1,9 +1,10 @@
 {% extends "home/base.html" %}
 
 {% block content %}
-    <h1 class="text-center text-lg-start fst-italic">Current Openings to check out!</h1>
+    <h1 class="text-lg-start fst-italic p2">Current Openings to check out!</h1>
+    <br>
     {% for post in posts %}
-        <article class="media content-section">
+        <article class="media old-content-section p2">
             <div class="media-body">
                 <div class="article-metadata">
                     <a class="mr-2" href="{{post.companyWebsite}}" target="_blank">{{ post.companyName }}</a>
@@ -15,5 +16,6 @@
                 
             </div>
         </article>
+        <br>
     {% endfor %}
 {% endblock content %}

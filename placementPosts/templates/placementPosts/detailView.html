@@ -2,7 +2,7 @@
 
 {% block content %}
     
-    <article class="media content-section">
+    <article class="media old-content-section">
         <div class="media-body">
             <div class="article-metadata">
                 <a class="mr-2" href="{{post.companyWebsite}}" target="_blank">{{ post.companyName }}</a>
@@ -15,38 +15,37 @@
                 <em>Last date to apply: </em><br>{{post.lastDateToApply}}<br><br>
             </p>
 
-            <a href="{{post.applyingLink}}">Apply here</a>
+            <a class="btn btn-outline-primary" href="{{post.applyingLink}}">Apply here</a>
         </div>
     </article>
      
-    <h2>Comments :</h2><br>   
-
     <form method="POST">
         {% csrf_token %}
-        <label for="comment">Add your comment here:</label><br>
+        <label for="comment"><b>Add your comment here:</b></label><br>
         <textarea rows="1" cols="50" name="comment" id="comment" style="max-width: 95%; color:black;" required>
         </textarea><br>
-        <button class="btn btn-outline-info" type="submit">Add</button>
+        <button class="btn btn-outline-primary" type="submit">Add Comment</button>
     </form>
 
     <br><br>
-
+    <h2>Comments :</h2> 
+    <br>
     {% for comment in comments %}
-        <article class="media content-section">
+        <article class="media old-content-section">
             <div class="media-body">
                 <div class="article-metadata">
                     <small class="text-muted mr-2">{{ comment.author.username }}</small>
                     <small class="text-muted">{{ comment.datePosted }}</small>
-                    {% if user.id == comment.author.id %}
-                        <div>
-                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'pcomment-update' post.id comment.id %}">Edit</a>
-                            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'pcomment-delete' post.id comment.id %}">Delete</a>
-                        </div>
-                    {% endif %}
                 </div>
                 <h5>
                     <p>{{ comment.comment }}</p>
                 </h5>
+                    {% if user.id == comment.author.id %}
+                        <div >
+                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'pcomment-update' post.id comment.id %}">Edit</a>
+                            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'pcomment-delete' post.id comment.id %}">Delete</a>
+                        </div>
+                    {% endif %}
             </div>
         </article>
     {% endfor %}

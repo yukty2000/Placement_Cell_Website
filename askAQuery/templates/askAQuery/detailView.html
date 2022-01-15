@@ -2,7 +2,7 @@
 
 {% block content %}
     
-    <article class="media content-section">
+    <article class="media old-content-section p2">
             <div class="media-body">
                 <div class="article-metadata">
                     <small class="text-muted mr-2">{{ query.author }}</small>
@@ -17,22 +17,20 @@
                 <h2><a class="article-title" href="#">{{ query.question }}</a></h2>
                 <p>{{ query.description }}</p>
             </div>
-        </article>
-     
-    <h2>Replies :</h2><br>   
+        </article>   
 
     <form method="POST">
         {% csrf_token %}
-        <label for="reply">Add your replies here:</label><br>
+        <label for="reply"><b>Add your replies here:<b></label><br>
         <textarea rows="1" cols="50" name="reply" id="reply" placeholder="Write reply here" style="max-width: 95%; color:black;" required>
         </textarea><br>
-        <button class="btn btn-outline-info" type="submit">Reply</button>
+        <button class="btn btn-outline-primary" type="submit">Add Reply</button>
     </form>
 
     <br><br>
-
+    <h2>Replies:</h2>
     {% for reply in replies %}
-        <article class="media content-section">
+        <article class="media old-content-section">
             <div class="media-body">
                 <div class="article-metadata">
                     <small class="text-muted mr-2">{{ reply.author.username }}</small>

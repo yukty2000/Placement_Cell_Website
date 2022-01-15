@@ -28,7 +28,30 @@ body {
     font-weight: 500;
   }
   
+  .new-content-section {
+    position: relative;
+    background: #ffffff;
+    text-align: center;
+    padding: 10px 20px;
+    border: 2px solid #dddddd;
+    border-radius: 3px;
+    left: 25%;
+    right: 20%;
+  }
+
+  .old-content-section {
+    background: #ffffff;
+    text-align: center;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+
   .content-section {
+    position: relative;
+    left: 25%;
+    right: 20%;
     background-color: #ffffff;
     margin: auto;
     width: 60%;
