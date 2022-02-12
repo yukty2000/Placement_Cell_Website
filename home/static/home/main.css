@@ -108,7 +108,10 @@ body {
     font-size: 2.5rem;
   }
 
-  
+  .page-container {
+    position: relative;
+    min-height: 56vh;
+  }
 
   footer {  
     position: absolute;
