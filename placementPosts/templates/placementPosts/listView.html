@@ -1,11 +1,12 @@
 {% extends "home/base.html" %}
 
 {% block content %}
+
     <h1 class="text-lg-start fst-italic p2">Current Openings to check out!</h1><h6>Click on post title to see detailed view</h6>
     <br>
     {% for post in posts %}
         <article class="media old-content-section p2">
-            <div class="media-body">
+            <div class="media-body ">
                 <div class="article-metadata">
                     <a class="mr-2" href="{{post.companyWebsite}}" target="_blank">{{ post.companyName }}</a>
                     <small class="text-muted">{{ post.datePosted }}</small>
@@ -13,6 +14,7 @@
                 <h2>
                     <a class="article-title" href="{% url 'post-detail' post.id%}">{{ post.title }}</a>
                 </h2>
+                
             </div>
         </article>
         <br>

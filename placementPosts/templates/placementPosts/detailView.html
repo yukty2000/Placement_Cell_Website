@@ -26,7 +26,7 @@
         <!--<textarea rows="1" cols="50" name="comment" id="comment" style="max-width: 95%; color:black;" required>-->
         <input type="text" name="comment" id="comment" style="width: 50%;" required>
         <br><br>
-        <button class="btn btn-outline-info" type="submit">Add</button>
+        <button class="btn btn-outline-primary" type="submit">Add</button>
 
     </form>
 
@@ -45,8 +45,9 @@
                 </h5>
                     {% if user.id == comment.author.id %}
                         <div >
-                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'pcomment-update' post.id comment.id %}">Edit</a>
-                            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'pcomment-delete' post.id comment.id %}">Delete</a>
+                            <a class="btn btn-outline-danger btn-sm float-right mt-1 mb-1" href="{% url 'pcomment-delete' post.id comment.id %}">Delete</a>
+                            <a class="btn btn-outline-secondary btn-sm float-right mt-1 mb-1 mr-2" href="{% url 'pcomment-update' post.id comment.id %}">Edit</a>
+                            
                         </div>
                     {% endif %}
             </div>
