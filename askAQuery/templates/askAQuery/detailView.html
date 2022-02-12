@@ -1,21 +1,27 @@
 {% extends "home/base.html" %}
 
 {% block content %}
-    
+    <style type="text/css">
+        .button_example{
+            float: right;
+        }
+
+    </style>
     <article class="media old-content-section p2">
             <div class="media-body">
                 <div class="article-metadata">
                     <small class="text-muted mr-2">{{ query.author }}</small>
                     <small class="text-muted">{{ query.datePosted }}</small>
-                    {% if user.id == query.author.id %}
-                        <div>
-                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'query-update' query.id %}">Edit</a>
-                            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'query-delete' query.id %}">Delete</a>
-                        </div>
-                    {% endif %}
+                    
                 </div>
                 <h2><a class="article-title" href="#">{{ query.question }}</a></h2>
                 <p>{{ query.description }}</p>
+                {% if user.id == query.author.id %}
+                        <div>
+                            <a class="btn btn-outline-danger float-right btn-sm mt-1 mb-1" href="{% url 'query-delete' query.id %}">Delete</a>
+                            <a class="btn btn-outline-secondary float-right btn-sm mt-1 mb-1 mr-2" href="{% url 'query-update' query.id %}">Edit</a>
+                        </div>
+                    {% endif %}
             </div>
         </article>   
 
@@ -25,7 +31,7 @@
         <label for="reply">Add your replies here:</label><br>
         <input type="text" name="reply" id="reply" style="width: 50%;" required>
         <br><br>
-        <button class="btn btn-outline-info" type="submit">Reply</button>
+        <button class="btn btn-outline-primary" type="submit">Reply</button>
 
     </form>
 
@@ -37,16 +43,16 @@
                 <div class="article-metadata">
                     <small class="text-muted mr-2">{{ reply.author.username }}</small>
                     <small class="text-muted">{{ reply.datePosted }}</small>
-                    {% if user.id == reply.author.id %}
-                        <div>
-                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'qcomment-update' query.id reply.id %}">Edit</a>
-                            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'qcomment-delete' query.id reply.id %}">Delete</a>
-                        </div>
-                    {% endif %}
                 </div>
                 <h5>
                     <p>{{ reply.comment }}</p>
                 </h5>
+                {% if user.id == reply.author.id %}
+                        <div>
+                            <a class="btn btn-outline-danger float-right btn-sm mt-1 mb-1" href="{% url 'qcomment-delete' query.id reply.id %}">Delete</a>
+                            <a class="btn btn-outline-secondary float-right btn-sm mt-1 mb-1 mr-2" href="{% url 'qcomment-update' query.id reply.id %}">Edit</a>
+                        </div>
+                {% endif %}
             </div>
         </article>
     {% endfor %}
