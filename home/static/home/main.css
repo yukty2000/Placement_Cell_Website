@@ -108,11 +108,16 @@ body {
     font-size: 2.5rem;
   }
 
+  .page-container {
+    position: relative;
+    min-height: 56vh;
+  }
+
   footer {  
-    left: 40px;  
-    bottom: 5px;  
-    width: 100%;  
-    height: 200%;
+    position: absolute;
+    width: 100%;
+    height: 32%;   
+    bottom: 0x;
     background-color:  #2832c2;  
     color: white;  
     text-align: center;  
