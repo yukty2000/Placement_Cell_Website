@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 # Create your models here.
 
+# Query(question,author,datePosted,description)
 class Query(models.Model):
 
 	# List view 
@@ -21,6 +22,8 @@ class Query(models.Model):
 		return reverse('query-detail',kwargs={'pk': self.pk})
 
 # Comments can be seen only in detail view of query
+
+# CommentOnQuery(author,datePosted,comment,query)
 class CommentOnQuery(models.Model):
 
 	# Only List view
