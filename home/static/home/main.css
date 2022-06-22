@@ -12,6 +12,7 @@ body {
     margin: 0;
   }
   
+
   .bg-steel {
     background-color: #2832c2;
   }
@@ -28,6 +29,7 @@ body {
     font-weight: 500;
   }
   
+
   .new-content-section {
     position: relative;
     left: 25%;
