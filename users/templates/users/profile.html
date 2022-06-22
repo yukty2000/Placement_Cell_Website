@@ -2,18 +2,48 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="content-section">
+    <style type="text/css">
+        .centertext{
+            text-align: center;
+        }
+        .lefttext{
+            text-align: justify;
+        }
+        .center {
+  display: block;
+  margin-left: 20%;
+  margin-right: auto;
+
+}
+img {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+    </style>
+    <div class="new-content-section">
         <div class="media">
-            <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
+            <a target="_blank" href="{{user.profile.image.url}}">
+              <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
+            </a>
+
             <div class="media-body">
-                <h2 class="account-heading">{{user.username}}</h2>
-                <p class="text-secondary">Name: {{user.get_full_name}}</p>
-                <p class="text-secondary">Email: {{user.email}}</p>
-                <p class="text-secondary">YOP: {{user.profile.yearOfpassing}}</p>
+                <h2 font-size:2.0rem;>{{user.username}}</h2>
+                <p class="text-secondary"><b>Name:</b> {{user.get_full_name}}</p>
+                <p class="text-secondary"><b>Email:</b> {{user.email}}</p>
+                <p class="text-secondary"><b>YOP: </b>{{user.profile.yearOfpassing}}</p>
             </div>
         </div>
+
+
+        
         <!-- FORM HERE -->
-        <form method="POST" enctype="multipart/form-data">
+       <!-- <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Update Profile</legend>
@@ -22,7 +52,21 @@
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Update</button>
             </div>
-        </form>
+        </form>-->
 
     </div>
+    <br>
+    <div class="new-content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Update Profile</legend>
+                {{ form|crispy  }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-primary" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+
 {% endblock content %}
