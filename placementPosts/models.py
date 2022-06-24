@@ -19,6 +19,7 @@ class Post(models.Model):
 	description = models.TextField()
 	companyWebsite = models.URLField(max_length=200)
 	applyingLink = models.URLField(max_length=200)
+	yearOfpassing = models.IntegerField(default=2022)
 
 	def __str__(self):
 		return self.title
