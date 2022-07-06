@@ -10,6 +10,8 @@
                 anchor.setAttribute("class", "btn btn-outline-secondary disabled");
                 anchor.setAttribute("style", "color: black;");
                 alert("Year of passing needed is {{post.yearOfpassing}}!");
+            }else{
+                window.open('{{post.applyingLink}}');
             }
        }
     </script>
@@ -22,15 +24,15 @@
             </div>
             <h2 class="article-title">{{ post.title }}</h2>
             <p>
-                <em>Job role: </em><br>{{ post.jobRole }}<br><br>
-                <em>Job description: </em><br>{{ post.description|linebreaks }}<br><br>
-                <em>Last date to apply: </em><br>{{post.lastDateToApply}}<br><br>
-                <em>Year of Passing: </em><br>{{post.yearOfpassing}}<br><br>
+                <em><b>Job role: </b></em><br>{{ post.jobRole }}<br><br>
+                <em><b>Job description: </b></em><br>{{ post.description|linebreaks }}<br><br>
+                <em><b>Last date to apply: </b></em><br>{{post.lastDateToApply}}<br><br>
+                <em><b>Year of Passing: </b></em><br>{{post.yearOfpassing}}<br><br>
             </p>
 
 
             <form action="{{post.applyingLink}}">
-                <input class="btn btn-outline-primary" type="submit" value="Apply Here" id="anchor" onclick="able()">
+                <input class="btn btn-outline-primary" type="button" value="Apply Here" id="anchor" onclick="able();">
             </form>
 
     </article>
