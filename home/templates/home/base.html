@@ -9,7 +9,6 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
-
         {% if title %}
             <title>{{title}}</title>
         {% else %}
@@ -48,7 +47,7 @@
                             {% endif %}
                         </div>
                         <!-- Navbar Right Side -->
-                        <div class="navbar-nav me-auto">
+                        <div class="navbar-nav">
                             {% if user.is_authenticated %}
                                 <a class="nav-item nav-link" href="{% url 'query-create' %}"><b>New Query</b></a>
                                 <a class="nav-item nav-link mr-4" href="{% url 'profile' %}"><b>{{user.profile}}</b></a>
