@@ -3,28 +3,21 @@
 
 {% block content %}
     <style type="text/css">
-        .centertext{
-            text-align: center;
-        }
-        .lefttext{
-            text-align: justify;
-        }
         .center {
-  display: block;
-  margin-left: 20%;
-  margin-right: auto;
+            display: block;
+            margin-left: 20%;
+            margin-right: auto;
+        }
+        img {
+            border: 1px solid #ddd;
+            border-radius: 4px;  
+            padding: 5px; 
+            width: 150px; 
+        }
 
-}
-img {
-  border: 1px solid #ddd; /* Gray border */
-  border-radius: 4px;  /* Rounded border */
-  padding: 5px; /* Some padding */
-  width: 150px; /* Set a small width */
-}
-
-img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
     </style>
     <div class="new-content-section">
         <div class="media">
@@ -40,19 +33,6 @@ img:hover {
             </div>
         </div>
 
-
-        
-        <!-- FORM HERE -->
-       <!-- <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Update Profile</legend>
-                {{ form|crispy  }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Update</button>
-            </div>
-        </form>-->
 
     </div>
     <br>
