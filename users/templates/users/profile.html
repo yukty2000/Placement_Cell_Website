@@ -18,6 +18,17 @@
         img:hover {
             box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
         }
+
+        .update-content-section {
+            position: relative;
+            left: 25%;
+            right: 20%;
+            background: #ffffff;
+            text-align: left;
+            padding: 10px 20px;
+            border: 2px solid #dddddd;
+            border-radius: 3px;
+        }
     </style>
     <div class="new-content-section">
         <div class="media">
@@ -39,11 +50,12 @@
     <div class="new-content-section">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Update Profile</legend>
-                {{ form|crispy  }}
+            <legend class="border-bottom mb-4">Update Profile</legend> 
+            <fieldset class="form-group text-left font-weight-bold col-sm-4">    
+                {{ form.as_p }}     
             </fieldset>
-            <div class="form-group">
+             
+            <div class="form-group text-center">
                 <button class="btn btn-outline-primary" type="submit">Update</button>
             </div>
         </form>
