@@ -11,7 +11,7 @@
             <h2 class="article-title">{{ post.title }}</h2>
             <p>
                 <em>Job role: </em><br>{{ post.jobRole }} at {{post.companyName}}<br><br>
-                <em>Job description: </em><br>{{ post.description }}<br><br>
+                <em>Job description: </em><br>{{ post.description|linebreaks }}<br><br>
                 <em>Last date to apply: </em><br>{{post.lastDateToApply}}<br><br>
                 <em>Year of Passing: </em><br>{{post.yearOfpassing}}<br><br>
             </p>
