@@ -44,11 +44,10 @@
                             {% if user.is_authenticated %}
                                 <a class="nav-item nav-link" href="{% url 'placement-website-posts' %}"><b>Job Openings</b></a>
                                 <a class="nav-item nav-link" href="{% url 'placement-website-askAQuery' %}"><b>Queries</b></a>
-                            {% endif %}
+                        <!--{% endif %}
                         </div>
-                        <!-- Navbar Right Side -->
-                        <div class="navbar-nav">
-                            {% if user.is_authenticated %}
+                       <div class="navbar-nav">
+                            {% if user.is_authenticated %}-->
                                 <a class="nav-item nav-link" href="{% url 'query-create' %}"><b>New Query</b></a>
                                 <a class="nav-item nav-link mr-4" href="{% url 'profile' %}"><b>{{user.profile}}</b></a>
                                 <a class="nav-item nav-link mr-4" href="{% url 'logout' %}"><b>Logout</b></a>
